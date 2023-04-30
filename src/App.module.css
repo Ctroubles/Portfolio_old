@@ -27,10 +27,6 @@
 #mainContent{
     width: calc(100vw - 75px);
     height: calc(var(--vh, 1vh) * 100);
-    height: -webkit-fill-available; 
-    height: -moz-available; 
-    height: -ms-fill-available; 
-    height: fill-available; 
     overflow-x: hidden;
     overflow-y: hidden;
     position: relative;
