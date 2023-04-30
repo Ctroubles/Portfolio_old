@@ -117,9 +117,7 @@ const handleTouchMove = debounce((event) => {
           <div id={style.mainContent}  onWheel={(evento)=>handleWheel(evento)} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}  >
               <div  style={{transform:`translateY(calc(-100vh * ${currentView}))`,transition:"all 1s ease-out"}}>
                 <div id={style.CanvasContaier}><CanvaToDraw/></div>
-                <div>
                   <Intro/> 
-                </div>
                 <div>
                     <Skills currentView={currentView}/>
                 </div>

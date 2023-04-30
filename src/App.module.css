@@ -9,24 +9,26 @@
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
 }
+:root {
+    --vh: 1vh;
+}
 
 #Main{
     display: flex;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
     color: #faebd7;
     background-color: #1d1d1d;
 }
 #mainContent{
     width: calc(100vw - 75px);
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     overflow-x: hidden;
     overflow-y: hidden;
     position: relative;
 }
-#mainContent>div{
-    scroll-snap-align: center;
-    scroll-behavior: smooth;
+#mainContent>:first-child{
+    
 }
 
 #navBar{
