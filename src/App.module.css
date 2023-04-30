@@ -31,9 +31,6 @@
     overflow-y: hidden;
     position: relative;
 }
-#mainContent>:first-child{
-    
-}
 
 #navBar{
     background-color: #181818;
@@ -95,7 +92,7 @@
 
 .arrowDown{
     position: absolute;
-    bottom: 30px;
+    bottom: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -148,7 +145,7 @@
     }
     #linesMenu{
         position: absolute;
-        top: 20px;
+        top: 15px;
         right: 15px;
         z-index: 10;
     }
