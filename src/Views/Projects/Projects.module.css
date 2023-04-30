@@ -1,0 +1,49 @@
+#Projects{
+    height: 100vh;
+    background-color: #1d1d1d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+}
+
+#CardsProjectContainer{
+    flex-direction: row;
+    display: flex;
+    color: #dfdddd;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    max-width: 1200px;
+}
+.projectsCards{
+    width: 300px;
+    margin: 0 50px;
+}
+.projectsCards p{
+    margin-top: 5px;
+    text-align: center;
+}
+#imgContainerCompuShop{
+    height: 250px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+#imgContainerCompuShop  img{
+    height: 102%;
+}
+
+#imgContainer_ezCook{
+    height: 250px;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#imgContainer_ezCook  img{
+    height: 100%;
+    /* padding-right: 100px; */
+}
+
+

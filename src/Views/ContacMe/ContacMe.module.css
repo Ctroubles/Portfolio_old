@@ -1,0 +1,679 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600&display=swap');
+
+
+
+
+#ContacMe{
+    background-color: #1d1d1d;
+    width: 100%;
+    height: 100vh;
+    color: #fefefe;
+    display: flex;  
+    align-items: center;   
+}
+#ContacMe >div{
+    width: 50%;
+}
+#FormContainer{
+    padding: 0 4rem;
+    width: 50%;
+    flex-shrink: 0;
+}
+#FormContainer h1{
+    font-size: 73px;
+    font-weight: 500;
+    color: rgb(8, 253, 216);
+    letter-spacing: -5px;
+    margin-bottom: 40px;
+}
+#FormContainer p{
+   font-size: 16px;
+}
+#Form{
+    padding-top: 50px;
+    color: #8d8d8d;
+}
+#Form input{
+    height: 50px;
+    padding: 0 20px;
+    width: 100%;
+    outline: none;
+    background-color: #2b2b2b;
+    border: none;
+    color: #8d8d8d;
+    font-size: 16px;
+    opacity: 0;
+}
+
+#Form #sender{
+    display: flex;
+}
+#Form label{
+    width: 100%;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+#Form #sender>:nth-child(1){
+    margin-right: 10px;
+}
+#Form textarea{
+    background-color: #2b2b2b;
+    border: none;
+    min-height: 150px;
+    width: 100%;
+    outline: none;
+    padding: 20px;
+    color: #8d8d8d;
+    font-size: 16px;
+    resize: none;
+    opacity: 0;
+}
+#sendButton{
+    text-align: end;
+}
+#sendButton button{
+    height: 50px;
+    width: 100%;
+    max-width: 220px;
+    background-color: transparent;
+    border: 1px solid #08fdd8;
+    color: #08fdd8;
+    letter-spacing: 4px;
+    margin-top: 20px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+    font-family: 'Exo', sans-serif;
+    overflow: hidden;
+}
+#sendButton button::after{
+    content: "";
+    width: 6%;
+    background-color: #08fdd8;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -5px;
+    z-index: -1;
+    transition: all 0.4s ease;
+    transform:  skewX(-10deg);
+}
+#sendButton button:hover{
+    color: #000;
+}
+#sendButton button:hover::after{
+    width: calc(100% + 10px);
+}
+#rigthContent{
+    display: flex;
+    justify-content: end;
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+    transition-delay: 600ms;
+}
+#rigthContent.aparecerMapa{
+    opacity: 1;
+}
+#mapaContainer{
+    opacity: 0.7;
+    position: relative;
+    height: 85vh;
+}
+#mapaContainer img{
+    height: 100%;
+}
+#pin{
+    height: 50px;
+    display: inline;
+    width: 60px;
+    bottom: 48%;
+    left: 16%;
+    position: absolute;
+}
+
+#pin::after{
+    content: "Perú";
+    display: block;
+    /* opacity: 1; */
+    color: #f0f0f1;
+    bottom: calc(45% + 35px);
+    left: -10px;
+    position: absolute;
+    font-size: 25px;
+    font-weight: 400;
+    font-family: 'Exo', sans-serif;
+    transition: opacity 0.3s ease;
+    background-color: #00000096;
+    padding: 3px 18px;
+    border-radius: 6px;
+}
+
+
+#sentence{
+    font-size: 75px;
+    font-weight: 700; 
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
+#sentence span{
+    background-image: linear-gradient(to right, #08fdd8, #08fdd8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#Form .aparecer{
+    animation: aparecer 1.2s ease-out;
+    animation-delay: 600ms;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#Form .aparecerTextarea{
+    animation: aparecerTextarea 1.2s ease-out;
+    animation-delay: 600ms;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes aparecer {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+@keyframes aparecerTextarea {
+    0% {
+      opacity: 0;
+      transform: translateY(80px);
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+@media screen and (max-width:1500px) and (min-width: 1351px) {
+    #mapaContainer{
+        height: 80vh;
+    }
+    #sentence{
+        font-size: 68px;
+    }
+}
+@media screen and (max-width:1350px) and (min-width: 1251px) {
+    #FormContainer{
+        padding: 0 45px;
+    }
+    #mapaContainer{
+        height: 80vh;
+        overflow: hidden;
+    }
+    #sentence{
+        font-size: 65px;
+    }
+    #FormContainer p{
+        font-size: 15px;
+    }
+    #Form{
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width:1250px) and (min-width: 1001px) {
+    #ContacMe >div{
+        width: auto;
+    }
+    #FormContainer{
+        padding: 0 20px 0 45px;
+        flex-shrink: 0;
+        width: 60% !important;
+    }
+    #mapaContainer{
+        height: 80vh;
+        overflow: hidden;
+        padding-bottom: 20px;
+    }
+    #sentence{
+        font-size: 65px;
+    }
+    #FormContainer p{
+        font-size: 15px;
+    }
+    #Form{
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width:1000px) and (min-width: 901px) {
+    #ContacMe >div{
+        width: auto;
+    }
+    #FormContainer{
+        padding: 0 20px 0 45px;
+        flex-shrink: 0;
+        width: 65% !important;
+    }
+    #mapaContainer{
+        height: 70vh;
+        overflow: hidden;
+        padding-bottom: 20px;
+    }
+    #sentence{
+        font-size: 65px;
+    }
+    #FormContainer p{
+        font-size: 15px;
+    }
+    #Form{
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width:900px) and (min-width: 851px) {
+    #ContacMe >div{
+        width: auto;
+    }
+    #FormContainer{
+        padding: 0 20px 0 45px;
+        flex-shrink: 0;
+        width: 65% !important;
+    }
+    #mapaContainer{
+        height: 65vh;
+        overflow: hidden;
+        padding-bottom: 20px;
+    }
+    #sentence{
+        font-size: 60px;
+    }
+    #FormContainer p{
+        font-size: 14px;
+    }
+    #Form{
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width:850px) and (min-width: 751px) {
+    #ContacMe >div{
+        width: auto;
+    }
+    #FormContainer{
+        padding: 0 20px 0 45px;
+        flex-shrink: 0;
+        width: 65% !important;
+    }
+    #mapaContainer{
+        height: 60vh;
+        overflow: hidden;
+        padding-bottom: 20px;
+    }
+    #sentence{
+        font-size: 58px;
+    }
+    #FormContainer p{
+        font-size: 14px;
+    }
+    #Form{
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width:750px) and (min-width: 601px) {
+    #ContacMe{
+        flex-direction: column;
+        padding: 20px 0 0 0;
+    }
+    #ContacMe >div{
+        width: 100%;
+    }
+    #FormContainer{
+        padding: 0 20px 0 45px;
+        flex-shrink: 0;
+        width: auto;
+    }
+    #mapaContainer{
+        height: auto;
+        overflow: hidden;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+    #mapa {
+        display:block;
+        height: 20%;
+        width: 100%;
+        position: relative;
+    }
+    #mapa img{
+        height: 100%;
+    }
+    #pin{
+        left: 8.5%;
+        top: 40%;
+    }
+    #sentence{
+        font-size: 58px;
+    }
+    #FormContainer p{
+        font-size: 14px;
+    }
+    #Form{
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width:600px) and (min-width: 541px) {
+    #ContacMe{
+        flex-direction: column;
+        padding: 20px 0 0 0;
+    }
+    #ContacMe >div{
+        width: 100%;
+    }
+    #FormContainer{
+        padding: 0 30px 0 30px;
+        flex-shrink: 0;
+        width: auto;
+    }
+    #mapaContainer{
+        height: auto;
+        overflow: hidden;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+    #mapa {
+        display:block;
+        height: 20%;
+        width: 100%;
+        position: relative;
+    }
+    #mapa img{
+        height: 100%;
+    }
+    #pin{
+        left: 8.5%;
+        top: 40%;
+    }
+    #sentence{
+        font-size: 58px;
+    }
+    #FormContainer p{
+        font-size: 14px;
+    }
+    #Form{
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width:540px) and (min-width: 451px) {
+    #ContacMe{
+        flex-direction: column;
+        padding: 20px 0 0 0;
+    }
+    #ContacMe >div{
+        width: 100%;
+    }
+    #FormContainer{
+        padding: 0 30px 0 30px;
+        flex-shrink: 0;
+        width: auto;
+    }
+    #mapaContainer{
+        height: auto;
+        overflow: hidden;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+    #mapa {
+        margin-top: 20px;
+        display:block;
+        height: 15%;
+        width: 100%;
+        position: relative;
+    }
+    #mapa img{
+        height: 100%;
+    }
+    #pin{
+        left: 7%;
+        top: 35%;
+    }
+    #sentence{
+        font-size: 58px;
+    }
+    #FormContainer p{
+        font-size: 14px;
+    }
+    #Form{
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width:450px) and (min-width: 401px) {
+    #ContacMe{
+        flex-direction: column;
+        padding: 20px 0 0 0;
+    }
+    #ContacMe >div{
+        width: 100%;
+    }
+    #FormContainer{
+        padding: 0 30px 0 30px;
+        flex-shrink: 0;
+        width: auto;
+    }
+    #mapaContainer{
+        height: auto;
+        overflow: hidden;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+    #mapa {
+        margin-top: 20px;
+        display:block;
+        height: 15%;
+        width: 100%;
+        position: relative;
+    }
+    #mapa img{
+        height: 100%;
+    }
+    #pin{
+        left: 7%;
+        top: 35%;
+    }
+    #sentence{
+        font-size: 50px;
+    }
+    #FormContainer p{
+        font-size: 14px;
+    }
+    #Form{
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width:400px) and (min-width: 381px) {
+    #ContacMe{
+        flex-direction: column;
+        padding: 20px 0 0 0;
+    }
+    #ContacMe >div{
+        width: 100%;
+    }
+    #FormContainer{
+        padding: 0 30px 0 30px;
+        flex-shrink: 0;
+        width: auto;
+    }
+    #mapaContainer{
+        height: auto;
+        overflow: hidden;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+    #mapa {
+        margin-top: 20px;
+        display:block;
+        height: 15%;
+        width: 100%;
+        position: relative;
+    }
+    #mapa img{
+        height: 100%;
+    }
+    #pin{
+        left: 7%;
+        top: 35%;
+    }
+    #sentence{
+        font-size: 40px;
+    }
+    #FormContainer p{
+        font-size: 14px;
+    }
+    #Form{
+        padding-top: 30px;
+    }
+    #pin::after{
+        content: "Perú";
+        display: block;
+        /* opacity: 1; */
+        color: #fdfdfd;
+        bottom: calc(45% + 35px);
+        font-size: 20px;
+        font-weight: 400;
+        background-color: #000000a8;
+        padding: 0px 10px;
+    }
+    
+}
+
+
+@media screen and (max-width:381px) and (min-width: 321px) {
+    #ContacMe{
+        flex-direction: column;
+        padding: 20px 0 0 0;
+    }
+    #ContacMe >div{
+        width: 100%;
+    }
+    #FormContainer{
+        padding: 0 30px 0 30px;
+        flex-shrink: 0;
+        width: auto;
+    }
+    #mapaContainer{
+        height: auto;
+        overflow: hidden;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+    #mapa {
+        margin-top: 20px;
+        display:block;
+        height: 15%;
+        width: 100%;
+        position: relative;
+    }
+    #mapa img{
+        height: 100%;
+    }
+    #pin{
+        left: 8.5%;
+        top: 35%;
+    }
+    #sentence{
+        font-size: 35px;
+    }
+    #FormContainer p{
+        font-size: 13.5px;
+    }
+    #Form{
+        padding-top: 30px;
+    }
+    #pin::after{
+        content: "Perú";
+        display: block;
+        /* opacity: 1; */
+        color: #fdfdfd;
+        bottom: calc(45% + 35px);
+        font-size: 20px;
+        font-weight: 400;
+        background-color: #000000a8;
+        padding: 0px 10px;
+    }
+    
+}
+
+@media screen and (max-width:320px) and (min-width: 221px) {
+    #ContacMe{
+        flex-direction: column;
+        padding: 20px 0 0 0;
+    }
+    #ContacMe >div{
+        width: 100%;
+    }
+    #FormContainer{
+        padding: 0 30px 0 30px;
+        flex-shrink: 0;
+        width: auto;
+    }
+    #mapaContainer{
+        height: auto;
+        overflow: hidden;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+    #mapa {
+        margin-top: 20px;
+        display:block;
+        height: 15%;
+        width: 100%;
+        position: relative;
+    }
+    #mapa img{
+        height: 100%;
+    }
+    #pin{
+        left: 10%;
+        top: 35%;
+    }
+    #sentence{
+        font-size: 28px;
+    }
+    #FormContainer p{
+        font-size: 13px;
+    }
+    #Form{
+        padding-top: 30px;
+    }
+    #pin::after{
+        content: "Perú";
+        display: block;
+        /* opacity: 1; */
+        color: #fdfdfd;
+        bottom: calc(45% + 35px);
+        font-size: 20px;
+        font-weight: 400;
+        background-color: #000000a8;
+        padding: 0px 10px;
+    }
+    
+}

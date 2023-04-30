@@ -1,0 +1,124 @@
+#spans{
+    font-size: 75px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: pre-wrap;
+    display: inline-block;
+    transition: all .1s ease;
+    opacity: 0;
+
+}
+#spans.active{
+    /* color: #08fdd8 !important; */
+    /* color: #b806ff !important; */
+    background: linear-gradient(to right, #08fdd8, #08fdd8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+#spans.isAnimated {
+    animation-name: letterIn;
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation-fill-mode: forwards;
+    transition: all 1s ease;
+    opacity: 1;
+  }
+  
+
+  
+
+
+  @keyframes letterIn {
+    0% {
+        opacity: 0;
+        transform: scale3d(0.95, 0.95, 0.95);
+    }
+    35% {
+        transform: scale3d(1.1, 1.15, 1);
+    }
+    50% {
+        transform: scale3d(0.9, 1.02, 1);
+    }
+    65% {
+        transform: scale3d(1.05, 1.1, 1);
+    }
+    80% {
+        transform: scale3d(0.95, 1.03, 1);
+    }
+    90% {
+        transform: scale3d(1, 1, 1);
+    }
+    100%{
+        opacity: 1;
+    }
+  }
+
+
+
+  
+@media screen and (max-width:1100px ) and (min-width:891px) {
+    #spans{
+        font-size: 60px;
+    }
+}  
+@media screen and (max-width:890px ) and (min-width:781px) {
+    #spans{
+        font-size: 50px;
+    }
+}
+@media screen and (max-width:780px ) and (min-width:671px) {
+    #spans{
+        font-size: 40px;
+    }
+}
+@media screen and (max-width:670px ) and (min-width:601px) {
+    #spans{
+        font-size: 35px;
+    }
+}
+@media screen and (max-width:600px ) and (min-width:551px) {
+    #spans{
+        font-size: 42px;
+    }
+}
+@media screen and (max-width:550px ) and (min-width:501px) {
+    #spans{
+        font-size:40px;
+    }
+}
+
+@media screen and (max-width:500px ) and (min-width:461px) {
+    #spans{
+        font-size:35px;
+    }
+}
+@media screen and (max-width:460px ) and (min-width:401px) {
+    #spans{
+        font-size:30px;
+    }
+}
+@media screen and (max-width:400px ) and (min-width:351px) {
+    #spans{
+        font-size:28px;
+    }
+}
+
+@media screen and (max-width:350px ) and (min-width:311px) {
+    #spans{
+        font-size:26px;
+    }
+}
+
+@media screen and (max-width:310px ) and (min-width:281px) {
+    #spans{
+        font-size:23px;
+    }
+}
+
+@media screen and (max-width:281px ) {
+    #spans{
+        font-size:20px;
+    }
+}

@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
+
+#LadingContainer{
+    /* background-color: #1d1d1d; */
+    width: 100%;
+    height: 100vh;
+    color: #fefefe;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+#meContainer {
+    margin: auto 0 auto 80px;
+    display: block;
+    width: 100%;
+}
+
+#meContainer> p{
+    margin: 25px 0 0 0;
+    color: rgb(141, 141, 141);
+    font-style: italic;
+    animation: aparecer 1s ease-out;
+    animation-delay: 2000ms;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    font-size: 16px
+}
+
+#sentence{
+    font-size: 80px;
+    font-weight: 400; 
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+#sentence span{
+    background-image: linear-gradient(to top, #fff    , #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Sigmar', cursive;
+}
+
+
+
+  @keyframes aparecer {
+    0% {
+      opacity: 0;
+      transform: translateY(25px);
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+
+@media screen and (max-width:1100px ) and (min-width:781px) {
+    #sentence{
+        font-size: 65px;
+    }
+    #meContainer> p{
+      margin: 25px 0 0 0;
+    }
+}
+@media screen and (max-width:780px ) and (min-width:671px) {
+    #sentence{
+        font-size: 50px;
+    }
+    #meContainer> p{
+      margin: 20px 0 0 0;
+    }
+}
+@media screen and (max-width:670px ) and (min-width:601px) {
+    #sentence{
+        font-size: 55px;
+        line-height: 60px;
+        height: 60px;
+    }
+    #meContainer> p{
+      margin: 25px 0 0 0;
+    }
+}
+@media screen and (max-width:600px ) and (min-width:551px) {
+  #sentence{
+    font-size: 55px;
+    line-height: 60px;
+    height: 55px;
+  }
+  #meContainer> p{
+    margin: 20px 0 0 0;
+    font-size: 15px
+  }
+}
+
+@media screen and (max-width:600px ) and (min-width:551px) {
+  #sentence{
+    font-size: 55px;
+    line-height: 60px;
+    height: 66px;
+  }
+  #meContainer> p{
+    margin: 20px 0 0 0;
+    font-size: 15px
+  }
+  #meContainer {
+    margin: auto 0 auto 50px;
+  }
+}
+
+@media screen and (max-width:550px ) and (min-width:501px) {
+  #sentence{
+    font-size: 55px;
+    line-height: 60px;
+    height: 65px;
+  }
+  #meContainer {
+    margin: auto 0 auto 30px;
+    padding-bottom: 60px;
+  }
+  #meContainer> p{
+    margin: 20px 0 0 0;
+    font-size: 15px
+  }
+}
+
+@media screen and (max-width:500px ) and (min-width:461px) {
+  #sentence{
+    font-size: 55px;
+    line-height: 60px;
+    height: 65px;
+  }
+  #meContainer {
+    margin: auto 0 auto 30px;
+    padding-bottom: 60px;
+  }
+  #meContainer> p{
+    margin: 20px 0 0 0;
+    font-size: 15px
+  }
+}
+
+@media screen and (max-width:460px ) and (min-width:401px) {
+  #sentence{
+    font-size: 55px;
+    line-height: 60px;
+    height: 55px;
+  }
+  #meContainer {
+    margin: auto 0 auto 20px;
+    padding-bottom: 80px;
+  }
+  #meContainer> p{
+    margin: 20px 0 0 0;
+    font-size: 15px
+  }
+}
+
+@media screen and (max-width:400px ) and (min-width:351px) {
+  #sentence{
+    font-size: 55px;
+    line-height: 60px;
+    height: 50px;
+  }
+  #meContainer {
+    margin: auto 0 auto 15px;
+    padding-bottom: 80px;
+  }
+  #meContainer> p{
+    margin: 20px 0 0 0;
+    font-size: 15px
+  }
+}
+
+@media screen and (max-width:350px ) and (min-width:311px) {
+  #sentence{
+    font-size: 55px;
+    line-height: 60px;
+    height: 50px;
+  }
+  #meContainer {
+    margin: auto 0 auto 12px;
+    padding-bottom: 80px;
+  }
+  #meContainer> p{
+    margin: 20px 0 0 0;
+    font-size: 15px
+  }
+}
+
+@media screen and (max-width:311px ) and (min-width:281px) {
+  #sentence{
+    font-size: 55px;
+    line-height: 60px;
+    height: 50px;
+  }
+  #meContainer {
+    margin: auto 0 auto 12px;
+    padding-bottom: 80px;
+  }
+  #meContainer> p{
+    margin: 20px 0 0 0;
+    font-size: 15px
+  }
+}
+
+@media screen and (max-width:280px ) {
+  #sentence{
+    font-size: 55px;
+    line-height: 60px;
+    height: 40px;
+  }
+  #meContainer {
+    margin: auto 0 auto 10px;
+    padding-bottom: 80px;
+  }
+  #meContainer> p{
+    margin: 20px 0 0 0;
+    font-size: 15px
+  }
+}
