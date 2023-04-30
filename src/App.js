@@ -31,6 +31,7 @@ function App() {
 
 
     const handleWheel = debounce((event) => {
+      console.log(event.target);
       if (!event.target.classList.contains("noSrcoll")) {
           const delta = Math.sign(event.deltaY);
     
@@ -44,6 +45,33 @@ function App() {
       }
     }, 100);
 
+///////////////////////// MOBILE EVENTS ///////////////
+
+
+let startY = null;
+
+function handleTouchStart(event) {
+  startY = event.touches[0].clientY;
+}
+
+const handleTouchMove = debounce((event) => {
+
+  if (!event.target.classList.contains("noSrcoll")) {
+    const delta = Math.sign(event.touches[0].clientY - startY);
+    const numViews = 3; 
+
+    if (delta < 0 && currentView < numViews) {
+      setCurrentView(currentView + 1);
+    } else if (delta > 0 && currentView > 0) {
+      setCurrentView(currentView - 1);
+    }
+    
+  }
+  startY=null
+}, 100);
+
+
+//////////////////////////////////////////////
 
     const takeDown = ()=>{
       const numViews = 3; 
@@ -86,7 +114,7 @@ function App() {
                   <li> <img src={currentView === 3 ?yellowPlane:plane} alt="plane" onClick={()=>setCurrentView(3)} /></li>
               </ul>
           </div>
-          <div id={style.mainContent}  onWheel={(evento)=>handleWheel(evento)}>
+          <div id={style.mainContent}  onWheel={(evento)=>handleWheel(evento)} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}  >
               <div  style={{transform:`translateY(calc(-100vh * ${currentView}))`,transition:"all 1s ease-out"}}>
                 <div id={style.CanvasContaier}><CanvaToDraw/></div>
                 <div>

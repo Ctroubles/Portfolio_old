@@ -31,13 +31,11 @@ const LetterAnimated = ({letter, contador,currentView, callerView})=>{
 
     useEffect(() => {
         if (currentView === callerView) {
-            console.log("entró");
             const timeoutId = setTimeout(() => {
                 setIsAnimated(true);
             }, Math.floor(90*contador));
             return () => clearTimeout(timeoutId);
         }
-        console.log(currentView);
     }, [currentView]);
   
 
