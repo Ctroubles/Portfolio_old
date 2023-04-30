@@ -16,6 +16,10 @@
 #Main{
     display: flex;
     height: calc(var(--vh, 1vh) * 100);
+    height: -webkit-fill-available; /* altura completa en iOS */
+    height: -moz-available; /* altura completa en Firefox */
+    height: -ms-fill-available; /* altura completa en IE/Edge */
+    height: fill-available; /* altura completa en otros navegadores */
     overflow: hidden;
     color: #faebd7;
     background-color: #1d1d1d;
@@ -23,6 +27,10 @@
 #mainContent{
     width: calc(100vw - 75px);
     height: calc(var(--vh, 1vh) * 100);
+    height: -webkit-fill-available; 
+    height: -moz-available; 
+    height: -ms-fill-available; 
+    height: fill-available; 
     overflow-x: hidden;
     overflow-y: hidden;
     position: relative;
