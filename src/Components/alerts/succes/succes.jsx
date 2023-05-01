@@ -6,7 +6,6 @@ const Succes = ({message})=>{
 
     useEffect(()=>{
         setTimeout(()=>{
-            console.log(document.getElementById(style.Succes));
             const alerta = document.getElementById(style.Succes);
             alerta.classList.add(style.hide)
         },5000)
