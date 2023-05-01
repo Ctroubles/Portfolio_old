@@ -31,20 +31,23 @@ const ContacMe = ({currentView})=>{
      
             const approved = validatorsLevel2(setErrors, form)
             if (approved) {
-                setLoading(true)
-                emailjs.sendForm('service_snsko7q', 'template_3y5xi4b',formU.current, '8EolTUdpPc19YuWvg')
-                .then((result) => {
-                    setSuccesAlert(true)
-                    setForm({
-                        from_name:"",
-                        reply_to:"",
-                        subject:"",
-                        message:"",
-                    })
-                    setLoading(false)
-                    setTimeout(()=>{
-                        setSuccesAlert(false)
-                    },6000)
+                setTimeout(()=>{
+                    setLoading(true)
+                    emailjs.sendForm('service_snsko7q', 'template_3y5xi4b',formU.current, '8EolTUdpPc19YuWvg')
+                    .then((result) => {
+                        setSuccesAlert(true)
+                        setForm({
+                            from_name:"",
+                            reply_to:"",
+                            subject:"",
+                            message:"",
+                        })
+                        setLoading(false)
+                        setTimeout(()=>{
+                            setSuccesAlert(false)
+                        },6000)
+                },1000)
+               
                 }, (error) => {
                     alert(error.text);
                 });

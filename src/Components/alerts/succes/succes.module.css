@@ -77,3 +77,14 @@
         transform: translateX(-105%);
     }
 }
+
+
+
+@media screen and (max-width:600px) {
+    #Succes{
+        top: initial;
+        bottom: 30px;
+        background-color: #10974b;
+
+    }
+}
