@@ -5,6 +5,8 @@ import pin from "../../assets/general_icons/locationPin.svg"
 import emailjs from 'emailjs-com';
 import { useEffect, useRef, useState } from "react";
 import LetterAnimated from "../Skills/Components/LetterAnimated/LetterAnimated";
+import { validatorsLevel2 } from "../../validators/formulario_validators";
+import Succes from "../../Components/alerts/succes/succes";
 
 
 
@@ -12,35 +14,50 @@ const ContacMe = ({currentView})=>{
 
       
         const formU = useRef();
+        const [succesAlert, setSuccesAlert] = useState(false)
+        const [loading, setLoading] = useState(false)
 
         const [form, setForm] = useState({
-            name:"",
-            email:"",
+            from_name:"",
+            reply_to:"",
             subject:"",
             message:"",
         });
 
+        const [errors, setErrors] =useState({})
+
         const sendEmail = (e) => {
             e.preventDefault();
-        
-            emailjs.sendForm('service_snsko7q', 'template_3y5xi4b',formU.current, '8EolTUdpPc19YuWvg')
-              .then((result) => {
-                  console.log(result.text);
-              }, (error) => {
-                  console.log(error.text);
-              });
+     
+            const approved = validatorsLevel2(setErrors, form)
+            if (approved) {
+                setLoading(true)
+                emailjs.sendForm('service_snsko7q', 'template_3y5xi4b',formU.current, '8EolTUdpPc19YuWvg')
+                .then((result) => {
+                    setSuccesAlert(true)
+                    setForm({
+                        from_name:"",
+                        reply_to:"",
+                        subject:"",
+                        message:"",
+                    })
+                    setLoading(false)
+                    setTimeout(()=>{
+                        setSuccesAlert(false)
+                    },6000)
+                }, (error) => {
+                    alert(error.text);
+                });
+            }
           };
 
 
           const handlerChange = (e)=>{
             const target = e.target.name;
             const value = e.target.value;
+            setErrors({...errors, [target]:null})
             setForm({...form,[target]:value})
           }
-    
-          useEffect(()=>{
-            console.log(form);
-          },[form])
 
 
           const sentence1 = "Escríbeme".split(" ")
@@ -75,30 +92,37 @@ const ContacMe = ({currentView})=>{
                 <div id={style.Form}>
                 <form onSubmit={sendEmail} ref={formU}>
                         <div id={style.sender}>
-                            <label>
-                                 <input value={form.from_name} name ="from_name" placeholder="Nombre" type="text" onChange={(e)=>handlerChange(e)} spellCheck="false" autoComplete="off" className={animationStatus?style.aparecer:undefined} />
+                            <label className={style.labelsInputs} >
+                            <span className={animationStatus? `${errors["from_name"]?style.error:""} ${style.aparecerTextarea}` :undefined} >
+                                    <input value={form.from_name} name ="from_name" placeholder="Nombre" type="text" onChange={(e)=>handlerChange(e)} spellCheck="false" autoComplete="off"/>
+                                </span>
                             </label>
 
-                            <label>
-                                <input value={form.reply_to} name="reply_to" placeholder="Email" type="email" onChange={(e)=>handlerChange(e)} spellCheck="false"  autoComplete="off" className={animationStatus?style.aparecer:undefined} />
+                            <label className={style.labelsInputs} >
+                            <span className={animationStatus? `${errors["reply_to"]?style.error:""} ${style.aparecerTextarea}` :undefined} >
+                                    <input value={form.reply_to} name="reply_to" placeholder="Email" type="text" onChange={(e)=>handlerChange(e)} spellCheck="false"  autoComplete="off"  />
+                                </span>
                             </label>
                         </div>
 
                         <div>
-                            <label>
-                                <input value={form.subject} name="subject" type="text" id="" placeholder="Asunto" onChange={(e)=>handlerChange(e)} spellCheck="false" autoComplete="off" className={animationStatus?style.aparecer:undefined} />
+                            <label className={style.labelsInputs} >
+                            <span className={animationStatus? `${errors["subject"]?style.error:""} ${style.aparecerTextarea}` :undefined} >
+                                    <input value={form.subject} name="subject" type="text" id="" placeholder="Asunto" onChange={(e)=>handlerChange(e)} spellCheck="false" autoComplete="off" />
+                                </span>
                             </label>
                         </div>
 
                         <div>
-                            <label>
-                                <textarea value={form.message} name="message" id=""  placeholder="Mensaje" onChange={(e)=>handlerChange(e)} spellCheck="false" autoComplete="off" className={animationStatus?style.aparecerTextarea:undefined} ></textarea>
+                            <label className={style.labelsInputs} >
+                                <span className={animationStatus? `${errors["message"]?style.error:""} ${style.aparecerTextarea}` :undefined} >
+                                    <textarea value={form.message} name="message" id=""  placeholder="Mensaje" onChange={(e)=>handlerChange(e)} spellCheck="false" autoComplete="off"  ></textarea>
+                                </span>
                             </label>
                         </div>
-                        <div id={style.sendButton}>
-                            <label>
-                                <button>Enviar mensaje!</button>
-                            </label>
+
+                        <div id={style.sendButton} className={loading ? style.loading : ""}>
+                                {loading ? <div className={style.loading}></div> : <button type="submit">Enviar mensaje!</button>}
                         </div>
                         
                     </form>
@@ -114,6 +138,7 @@ const ContacMe = ({currentView})=>{
                     </label>
                 </div>
             </div>
+            {succesAlert?(<Succes message={"Tu mensaje se ha enviado con exito"}></Succes>):undefined}
         </div>
     )
 };

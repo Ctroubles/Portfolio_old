@@ -10,6 +10,7 @@
     color: #fefefe;
     display: flex;  
     align-items: center;   
+    position: relative;
 }
 #ContacMe >div{
     width: 50%;
@@ -42,7 +43,6 @@
     border: none;
     color: #8d8d8d;
     font-size: 16px;
-    opacity: 0;
 }
 
 #Form #sender{
@@ -52,6 +52,7 @@
     width: 100%;
     margin-bottom: 10px;
     display: inline-block;
+    position: relative;
 }
 
 #Form #sender>:nth-child(1){
@@ -67,10 +68,12 @@
     color: #8d8d8d;
     font-size: 16px;
     resize: none;
-    opacity: 0;
+    position: relative;
+    display: block;
 }
 #sendButton{
     text-align: end;
+    height: 70px;
 }
 #sendButton button{
     height: 50px;
@@ -107,6 +110,32 @@
 #sendButton button:hover::after{
     width: calc(100% + 10px);
 }
+/* /////////// */
+#sendButton.loading button {
+    display: none;
+  }
+  
+  #sendButton.loading .loading {
+    display: inline-block;
+    margin: 30px 85px 0 0;
+  }
+  
+  #sendButton .loading {
+    margin: 0 auto;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    border: 0.25em solid rgba(255, 255, 255, 0.2);
+    border-top-color: white;
+    animation: spin 1s infinite linear;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  /* ////////////////////////////////////////////////////////// */
 #rigthContent{
     display: flex;
     justify-content: end;
@@ -179,6 +208,33 @@
     opacity: 0;
     animation-fill-mode: forwards;
 }
+
+.labelsInputs span{
+    position: relative;
+    display: block;
+}
+.labelsInputs span::after,
+.labelsInputs span::after{
+    content: "";
+    height: 2px;
+    width: 0%;
+    background-color: #08fdd8;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    transition: width 0.6s ease;
+}
+
+.labelsInputs span:focus-within::after {
+  width: 100% !important;
+}
+.error::after{
+    width: 100% !important;
+    background-color: red !important;
+}
+
+
 
 
 @keyframes aparecer {
@@ -439,6 +495,7 @@
         overflow: hidden;
         padding-bottom: 20px;
         width: 100%;
+        margin-top: 10px;
     }
     #mapa {
         margin-top: 20px;
@@ -483,6 +540,7 @@
         overflow: hidden;
         padding-bottom: 20px;
         width: 100%;
+        margin-top: 10px;
     }
     #mapa {
         margin-top: 20px;
@@ -527,6 +585,7 @@
         overflow: hidden;
         padding-bottom: 20px;
         width: 100%;
+        margin-top: 10px;
     }
     #mapa {
         margin-top: 20px;
@@ -569,7 +628,7 @@
 @media screen and (max-width:381px) and (min-width: 321px) {
     #ContacMe{
         flex-direction: column;
-        padding: 20px 0 0 0;
+        padding: 45px 0 0 0;
     }
     #ContacMe >div{
         width: 100%;
@@ -584,6 +643,7 @@
         overflow: hidden;
         padding-bottom: 20px;
         width: 100%;
+        margin-top: 10px;
     }
     #mapa {
         margin-top: 20px;
