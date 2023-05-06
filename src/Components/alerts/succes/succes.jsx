@@ -21,7 +21,7 @@ const Succes = ({message})=>{
         <label id={style.Succes} >
             <span id={style.icon }> <img src={green_check} alt="" /> </span>
             <label>{message}</label>
-            <span id={style.close} onClick={()=>throwAlert()}>X</span>
+            <span id={style.close} onClick={()=>throwAlert()}>x</span>
         </label>
     )
 }; 

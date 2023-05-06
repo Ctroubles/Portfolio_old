@@ -9,6 +9,12 @@ import { BrowserRouter, Route,} from "react-router-dom";
 import { debounce } from 'lodash';
 import arrow from "./assets/general_icons/black_arrow.svg"
 import { useMediaQuery } from '@material-ui/core';
+import homeIcon from "./assets/navBar_icons/home_icon.svg"
+import active_home from "./assets/navBar_icons/active_home.svg"
+import white_celtic from "./assets/navBar_icons/celtic_white.svg"
+import active__celtic from "./assets/navBar_icons/active_celtic_white.svg"
+import white_lifeTree from "./assets/navBar_icons/LifeTree_white.svg"
+import active_lifeTree from "./assets/navBar_icons/active_LifeTree_white.svg"
 
 
 
@@ -31,7 +37,6 @@ function App() {
 
 
     const handleWheel = debounce((event) => {
-      console.log(event.target);
       if (!event.target.classList.contains("noSrcoll")) {
           const delta = Math.sign(event.deltaY);
     
@@ -107,9 +112,9 @@ const handleTouchMove = debounce((event) => {
   
           <div id={style.navBar}>
               <ul id={style.navBarOptions}>
-                  <li id={currentView === 0 ?style.viewActive:undefined} onClick={()=>setCurrentView(0)} >Inicio</li>
-                  <li id={currentView === 1 ?style.viewActive:undefined} onClick={()=>setCurrentView(1)} >Skills</li>
-                  <li id={currentView === 2 ?style.viewActive:undefined} onClick={()=>setCurrentView(2)} >Proyectos</li>
+                  <li id={currentView === 0 ?style.viewActive:undefined} onClick={()=>setCurrentView(0)} ><img src={currentView === 0 ?active_home:homeIcon} alt='Home'/></li>
+                  <li id={currentView === 1 ?style.viewActive:undefined} onClick={()=>setCurrentView(1)} ><img src={currentView === 1 ?active__celtic:white_celtic} alt='Skills'/></li>
+                  <li id={currentView === 2 ?style.viewActive:undefined} onClick={()=>setCurrentView(2)} ><img src={currentView === 2 ?active_lifeTree:white_lifeTree} alt='Projects'/></li>
                   {/* <li id={currentView === 3 ?style.viewActive:undefined} onClick={()=>setCurrentView(3)} >Yo</li> */}
                   <li> <img src={currentView === 3 ?yellowPlane:plane} alt="plane" onClick={()=>setCurrentView(3)} /></li>
               </ul>

@@ -1,6 +1,7 @@
 import style from "./Landing.module.css"
 import AnimatedLetter from "./componets/AnimatedLetter/AnimatedLetter";
-import { useEffect, useState } from "react";
+
+
 
 const  Landing = ()=>{
 
@@ -18,8 +19,8 @@ const  Landing = ()=>{
                 <div>
                     <div id={style.sentence}>
                         {
-                            sentence1.map( word =>(
-                                        <span >
+                            sentence1.map((word, index) =>(
+                                        <span key={index}>
                                             {word.split("").map((letter,index)=>{
                                                 contador ++;
                                                 
@@ -35,8 +36,8 @@ const  Landing = ()=>{
                  
                     <div id={style.sentence}>
                             {
-                                sentence2.map( word =>(
-                                    <span>
+                                sentence2.map( (word, index) =>(
+                                    <span key={index}>
                                         {word.split("").map((letter,index)=>{
                                                 contador ++;
                                                 
@@ -52,8 +53,8 @@ const  Landing = ()=>{
 
                    <div id={style.sentence}>
                         {
-                            sentence3.map( word =>(
-                                <span >
+                            sentence3.map( (word, index) =>(
+                                <span key={index}>
                                     {word.split("").map((letter,index)=>{
                                                 contador ++;
                                                 

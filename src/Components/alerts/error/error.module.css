@@ -1,4 +1,4 @@
-#Succes{
+#Error{
     position: absolute;
     top: 20px;
     left: 0px;
@@ -6,14 +6,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #00fd6e54;
-    border-left: 6px solid #31d277;
+    background-color: #d61616ab;
+    border-left: 6px solid #ec0000;
     animation: show_alert 1.1s ease forwards;
     opacity: 1;
     pointer-events: auto;
 }
 
-#Succes.hide{
+#Error.hide{
     animation: hide_alert 1.1s ease forwards;
     opacity: 1;
     pointer-events: none;
@@ -22,25 +22,24 @@
     display: flex;
     align-items: center;
     margin-left: 10px;
-    background-color: #fefefe;
+    background-color: transparent;
     border-radius: 50%;
-    height: 24px;
-    width: 24px;
-}
-#icon img{
     height: 25px;
     width: 25px;
 }
-#Succes label{
+#icon img{
+    height: 24px;
+    width: 24px;
+}
+#Error label{
     padding: 0 15px 0 5px;
     font-size: 14px;
 }
 #close{
-    background-color: #31d277;
+    background-color: #ec0000;
     padding: 15px 10px;
-    height: 100%;
     line-height: 30px;
-    font-size: 28px;
+    font-size: 20px;
     line-height: 15px;
     color: #f3efef;
     cursor: pointer;
@@ -81,10 +80,10 @@
 
 
 @media screen and (max-width:600px) {
-    #Succes{
+    #Error{
         top: initial;
         bottom: 70px;
-        background-color: #10974b;
+        background-color: #921313;
 
     }
 }

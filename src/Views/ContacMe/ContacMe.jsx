@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from "react";
 import LetterAnimated from "../Skills/Components/LetterAnimated/LetterAnimated";
 import { validatorsLevel2 } from "../../validators/formulario_validators";
 import Succes from "../../Components/alerts/succes/succes";
+import Error from "../../Components/alerts/error/error";
+
 
 
 
@@ -15,6 +17,7 @@ const ContacMe = ({currentView})=>{
       
         const formU = useRef();
         const [succesAlert, setSuccesAlert] = useState(false)
+        const [errorAlert, setErrorAlert] = useState(false)
         const [loading, setLoading] = useState(false)
 
         const [form, setForm] = useState({
@@ -26,31 +29,33 @@ const ContacMe = ({currentView})=>{
 
         const [errors, setErrors] =useState({})
 
-        const sendEmail = (e) => {
+        const sendEmail = async (e) => {
             e.preventDefault();
      
             const approved = validatorsLevel2(setErrors, form)
             if (approved) {
-                setTimeout(()=>{
-                    setLoading(true)
-                    emailjs.sendForm('service_snsko7q', 'template_3y5xi4b',formU.current, '8EolTUdpPc19YuWvg')
-                    .then((result) => {
-                        setSuccesAlert(true)
-                        setForm({
-                            from_name:"",
-                            reply_to:"",
-                            subject:"",
-                            message:"",
-                        })
-                        setLoading(false)
-                        setTimeout(()=>{
-                            setSuccesAlert(false)
-                        },6000)
-                },1000)
-               
-                }, (error) => {
-                    alert(error.text);
-                });
+                try {
+                    setLoading(true);
+                    await emailjs.sendForm(
+                      'service_snsko7q',
+                      'template_3y5xi4b',
+                      formU.current,
+                      '8EolTUdpPc19YuWvg'
+                    );
+                    setSuccesAlert(true);
+                    setForm({
+                      from_name: '',
+                      reply_to: '',
+                      subject: '',
+                      message: '',
+                    });
+                    setLoading(false);
+                    setTimeout(() => {
+                      setSuccesAlert(false);
+                    }, 6000);
+                  } catch (error) {
+                    setErrorAlert(true);
+                  }  
             }
           };
 
@@ -76,8 +81,8 @@ const ContacMe = ({currentView})=>{
                 <label>
                 <div id={style.sentence}>
                         {
-                            sentence1.map( word =>(
-                                        <span>
+                            sentence1.map( (word, index) =>(
+                                        <span key={index}>
                                             {word.split("").map((letter,index)=>(
                                                     (<LetterAnimated key={index} letter={letter} contador={index+1} currentView={currentView}   callerView={3}/>)
                                             ))}
@@ -85,7 +90,7 @@ const ContacMe = ({currentView})=>{
                                         )            
                                     )
                         }
-                        </div>
+                </div>
                 </label>
                 <label>
                     <p>
@@ -141,7 +146,8 @@ const ContacMe = ({currentView})=>{
                     </label>
                 </div>
             </div>
-            {succesAlert?(<Succes message={"Tu mensaje se ha enviado con exito"}></Succes>):undefined}
+            {succesAlert?(<Succes message={"Tu mensaje se ha enviado con exito :D"}></Succes>):undefined}
+            {errorAlert?(<Error message={"Hubo un error al envíar tu mensaje :("}></Error>):undefined}
         </div>
     )
 };

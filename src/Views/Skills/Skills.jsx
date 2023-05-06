@@ -1,8 +1,8 @@
 import style from "./Skills.module.css"
 import Sphere from "./Components/Sphere3D/Sphere"
 import LetterAnimated from "./Components/LetterAnimated/LetterAnimated";
-import arrow from "../../assets/general_icons/black_arrow.svg"
 import { useEffect, useState } from "react";
+
 
 
 
@@ -21,8 +21,8 @@ const Skills =  ({currentView})=>{
                 <div>
                      <div id={style.sentence}>
                         {
-                            sentence1.map( word =>(
-                                        <span>
+                            sentence1.map((word, index) =>(
+                                        <span key={index}>
                                             {word.split("").map((letter,index)=>(
                                                     (<LetterAnimated key={index} letter={letter} contador={index+1} currentView={currentView} callerView={1} />)
                                             ))}

@@ -2,7 +2,6 @@ import style from "./Projects.module.css";
 import compuShopImg from "../../assets/projects_assets/compushop.png"
 import ez_cook from "../../assets/projects_assets/ez_cook.png"
 import CardProjects from "./componets/cardsProjects/CardProjects";
-import { useEffect } from "react";
 
 
 
