@@ -233,9 +233,9 @@
   }
 }
 
-@media screen and (max-width:350px ) and (min-width:311px) {
+@media screen and (max-width:350px ) and (min-width:320px) {
   #sentence{
-    font-size: 55px;
+    font-size: 40px;
     line-height: 60px;
     height: 50px;
   }
@@ -249,9 +249,9 @@
   }
 }
 
-@media screen and (max-width:311px ) and (min-width:281px) {
+@media screen and (max-width:319px ) and (min-width:281px) {
   #sentence{
-    font-size: 55px;
+    font-size: 20px;
     line-height: 60px;
     height: 50px;
   }
