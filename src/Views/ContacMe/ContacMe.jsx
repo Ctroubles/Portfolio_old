@@ -129,7 +129,7 @@ const ContacMe = ({currentView})=>{
                             </label>
                         </div>
 
-                        <div id={style.sendButton} className={loading ? style.loading : ""}>
+                        <div id={style.sendButton} className={`${loading ? style.loading : ""} ${animationStatus?style.aparecer:undefined}`} >
                                 {loading ? <div className={style.loading}></div> : <button type="submit">Enviar mensaje!</button>}
                         </div>
                         

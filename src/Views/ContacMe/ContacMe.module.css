@@ -75,6 +75,9 @@
     text-align: end;
     height: 70px;
 }
+#sendButton.aparecer{
+    animation: aparecerButton 1.2s ease forwards 800ms !important;
+}   
 #sendButton button{
     height: 50px;
     width: 100%;
@@ -113,14 +116,14 @@
 /* /////////// */
 #sendButton.loading button {
     display: none;
-  }
+}
   
-  #sendButton.loading .loading {
+#sendButton.loading .loading {
     display: inline-block;
     margin: 30px 85px 0 0;
-  }
-  
-  #sendButton .loading {
+}
+
+#sendButton .loading {
     margin: 0 auto;
     width: 1.5em;
     height: 1.5em;
@@ -128,13 +131,13 @@
     border: 0.25em solid rgba(255, 255, 255, 0.2);
     border-top-color: white;
     animation: spin 1s infinite linear;
-  }
-  
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
+}
+
+@keyframes spin {
+to {
+    transform: rotate(360deg);
+}
+}
   /* ////////////////////////////////////////////////////////// */
 #rigthContent{
     display: flex;
@@ -250,6 +253,21 @@
       transform: translateY(0);
     }
   }
+  
+  @keyframes aparecerButton {
+    0% {
+      opacity: 0;
+      transform: translateY(80px);
+    }
+    35%{
+        opacity: 0;
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
 @keyframes aparecerTextarea {
     0% {
       opacity: 0;
@@ -598,7 +616,7 @@
         height: 100%;
     }
     #pin{
-        left: 7%;
+        left: 8%;
         top: 35%;
     }
     #sentence{
@@ -656,7 +674,7 @@
         height: 100%;
     }
     #pin{
-        left: 8.5%;
+        left: 10%;
         top: 35%;
     }
     #sentence{

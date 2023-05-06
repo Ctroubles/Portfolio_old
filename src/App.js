@@ -15,7 +15,9 @@ import white_celtic from "./assets/navBar_icons/celtic_white.svg"
 import active__celtic from "./assets/navBar_icons/active_celtic_white.svg"
 import white_spiderweb from "./assets/navBar_icons/telarana.svg"
 import active_spiderweb from "./assets/navBar_icons/active_telarana.svg"
-
+import facebook from "./assets/social_media/facebok.svg";
+import whatsapp from "./assets/social_media/whatsapp.svg";
+import github from "./assets/social_media/github.svg";
 
 
 
@@ -112,12 +114,17 @@ const handleTouchMove = debounce((event) => {
   
           <div id={style.navBar}>
               <ul id={style.navBarOptions}>
-                  <li id={currentView === 0 ?style.viewActive:undefined} onClick={()=>setCurrentView(0)} ><img src={currentView === 0 ?active_home:homeIcon} alt='Home'/></li>
-                  <li id={currentView === 1 ?style.viewActive:undefined} onClick={()=>setCurrentView(1)} ><img src={currentView === 1 ?active__celtic:white_celtic} alt='Skills'/></li>
-                  <li id={currentView === 2 ?style.viewActive:undefined} onClick={()=>setCurrentView(2)} ><img style={{width:"23px"}} src={currentView === 2 ?active_spiderweb:white_spiderweb} alt='Projects'/></li>
+                  <li id={currentView === 0 ?style.viewActive:undefined} onClick={()=>{setCurrentView(0);setNavBarStatus(false)}} ><img src={currentView === 0 ?active_home:homeIcon} alt='Home'/></li>
+                  <li id={currentView === 1 ?style.viewActive:undefined} onClick={()=>{setCurrentView(1);setNavBarStatus(false)}} ><img src={currentView === 1 ?active__celtic:white_celtic} alt='Skills'/></li>
+                  <li id={currentView === 2 ?style.viewActive:undefined} onClick={()=>{setCurrentView(2);setNavBarStatus(false)}} ><img style={{width:"23px"}} src={currentView === 2 ?active_spiderweb:white_spiderweb} alt='Projects'/></li>
                   {/* <li id={currentView === 3 ?style.viewActive:undefined} onClick={()=>setCurrentView(3)} >Yo</li> */}
-                  <li> <img src={currentView === 3 ?yellowPlane:plane} alt="plane" onClick={()=>setCurrentView(3)} /></li>
+                  <li> <img src={currentView === 3 ?yellowPlane:plane} alt="plane" onClick={()=>{setCurrentView(3);setNavBarStatus(false)}} /></li>
               </ul>
+              <div id={style.socialMedia}>
+                  <span><a href='https://www.facebook.com/cesar.troubles.3/' target='blank'><img style={{height:"22px"}} src={facebook} alt='Facebook'/></a></span>
+                  <span><a href='https://github.com/Ctroubles' target='blank' ><img style={{margin: "0 8px", height:"19px"}} src={github} alt='GitHub'/></a></span>
+                  <span><a href='https://api.whatsapp.com/send/?phone=%2B51902038984&text&type=phone_number&app_absent=0' target='blank'><img src={whatsapp} alt='Whatsapp'/></a></span>
+              </div>
           </div>
           <div id={style.mainContent}  onWheel={(evento)=>handleWheel(evento)} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}  >
               <div  style={{transform:`translateY(calc(-100vh * ${currentView}))`,transition:"all 1s ease-out"}}>

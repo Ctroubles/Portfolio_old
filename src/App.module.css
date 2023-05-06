@@ -39,6 +39,8 @@
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-direction: column;
+    position: relative;
 }
 #navBarOptions{
     color: #faebd7;
@@ -47,11 +49,27 @@
     margin: 20px 0;
     list-style: none;
     cursor: pointer;
+    min-height: 25px;
 }
 #navBarOptions img{
     width: 25px;
+    height: 25px;
 }
 
+#socialMedia{
+    position: absolute;
+    bottom: 50px;
+    right: 50%;
+    display: flex;
+    transform: translate(50% , 0);
+    white-space: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+#socialMedia img{
+    height: 20.5px;
+    cursor: pointer;
+}
 #viewActive{
     color: #ffff01 !important;
 }
@@ -134,6 +152,13 @@
         width: 100%;
         background-color: #181818e3;
         display: none;
+        padding-bottom: 50px;
+    }
+    #socialMedia{
+        bottom: 8px;
+    }
+    #socialMedia>:nth-child(2){
+        margin: 0 12px;
     }
     #mainContent{
         width: 100vw;

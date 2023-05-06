@@ -37,15 +37,13 @@
     width: 100%;
 }
 #sphereContainer.animationActive{
-    opacity: 1;
-    animation: getIn 1.3s ease-out;
-    animation-delay: 300ms;
+    animation: getIn 1.5s ease-out forwards;
+    animation-delay: 1.2s;
     opacity: 0;
-    animation-fill-mode: forwards;
 }
 #timeToAnimate{
     animation: aparecer 1.3s ease-out;
-    animation-delay: 900ms;
+    animation-delay: 1.1s;
     opacity: 0;
     animation-fill-mode: forwards;
 }
@@ -63,9 +61,11 @@
 @keyframes getIn {
     0% {
       opacity: 0;
+      transform: translateY(80px);
     }
     100%{
       opacity: 1;
+      transform: translateY(0);
     }
 }
 
