@@ -54,7 +54,7 @@
 }
 #sendButton.aparecer{
   opacity: 0;
-  animation: aparecerButton 1.2s ease forwards 800ms !important;
+  animation: aparecerButton 1s ease forwards 2000ms !important;
 }   
 #sendButton button{
   height: 50px;
@@ -95,10 +95,7 @@
 @keyframes aparecerButton {
   0% {
     opacity: 0;
-    transform: translateY(80px);
-  }
-  35%{
-      opacity: 0;
+    transform: translateY(50px);
   }
   100%{
     opacity: 1;
