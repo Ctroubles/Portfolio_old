@@ -3,7 +3,7 @@ import AnimatedLetter from "./componets/AnimatedLetter/AnimatedLetter";
 
 
 
-const  Landing = ()=>{
+const Landing = ({setCurrentView})=>{
 
     const sentence1 = "Hola,".split(" ")
     const sentence2 = "Soy César,".split(" ")
@@ -69,7 +69,14 @@ const  Landing = ()=>{
                        
                     
                 </div>
-                <p>Full stack &gt; Front-end / Back-end</p>
+                <div>
+
+               
+                    <p id={style.statementP}>Full stack &gt; Front-end / Back-end</p>
+                    <div id={style.sendButton} className={style.aparecer} >
+                                  <button onClick={()=>setCurrentView(3)}>Escríbeme!</button>
+                        </div>
+                </div>
             </div>
           
 

@@ -122,7 +122,7 @@ const handleTouchMove = debounce((event) => {
               </ul>
               <div id={style.socialMedia}>
                   <span><a href='https://www.facebook.com/cesar.troubles.3/' target='blank'><img style={{height:"22px"}} src={facebook} alt='Facebook'/></a></span>
-                  <span><a href='https://github.com/Ctroubles' target='blank' ><img style={{margin: "0 8px", height:"19px"}} src={github} alt='GitHub'/></a></span>
+                  <span style={{margin: "0 8px"}}><a href='https://github.com/Ctroubles' target='blank' ><img style={{ height:"19px"}} src={github} alt='GitHub'/></a></span>
                   <span><a href='https://api.whatsapp.com/send/?phone=%2B51902038984&text&type=phone_number&app_absent=0' target='blank'><img src={whatsapp} alt='Whatsapp'/></a></span>
               </div>
           </div>
@@ -130,7 +130,7 @@ const handleTouchMove = debounce((event) => {
               <div  style={{transform:`translateY(calc(-100vh * ${currentView}))`,transition:"all 1s ease-out"}}>
                 <div id={style.CanvasContaier}><CanvaToDraw/></div>
                 <div>
-                  <Intro/> 
+                  <Intro setCurrentView={setCurrentView}/> 
                 </div>
                 <div>
                     <Skills currentView={currentView}/>

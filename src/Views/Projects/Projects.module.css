@@ -4,7 +4,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* position: relative; */
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; 
 }
 
 #CardsProjectContainer{

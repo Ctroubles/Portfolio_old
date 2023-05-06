@@ -3,6 +3,8 @@
     height: calc(var(--vh, 1vh) * 100);
     display: flex;
     position: relative;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; 
 }
 
 #content{
@@ -33,17 +35,17 @@
 
 #sphereContainer{
     opacity: 0;
-    transition: 1.5s ease-out;
+    transition: 1.5s ease;
     width: 100%;
 }
 #sphereContainer.animationActive{
-    animation: getIn 1.5s ease-out forwards;
-    animation-delay: 1.2s;
+    animation: getIn 1.5s ease forwards;
+    animation-delay: 0.65s;
     opacity: 0;
 }
 #timeToAnimate{
-    animation: aparecer 1.3s ease-out;
-    animation-delay: 1.1s;
+    animation: aparecer 1.3s ease;
+    animation-delay: 0.6s;
     opacity: 0;
     animation-fill-mode: forwards;
 }

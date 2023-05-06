@@ -6,8 +6,9 @@
     height: calc(var(--vh, 1vh) * 100);
     color: #fefefe;
     display: flex;
-    overflow: hidden;
     position: relative;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; 
 }
 #meContainer {
     margin: auto 0 auto 80px;
@@ -15,7 +16,7 @@
     width: 100%;
 }
 
-#meContainer> p{
+#statementP{
     margin: 25px 0 0 0;
     color: rgb(141, 141, 141);
     font-style: italic;
@@ -42,6 +43,68 @@
 }
 
 
+
+
+
+#sendButton{
+  text-align: end;
+  padding-right: 15px;
+  padding-top: 20px;
+  max-width: 850px;
+}
+#sendButton.aparecer{
+  opacity: 0;
+  animation: aparecerButton 1.2s ease forwards 800ms !important;
+}   
+#sendButton button{
+  height: 50px;
+  width: 100%;
+  max-width: 220px;
+  background-color: transparent;
+  border: 1px solid #08fdd8;
+  color: #08fdd8;
+  letter-spacing: 4px;
+  margin-top: 20px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  font-weight: 400;
+  font-family: 'Exo', sans-serif;
+  overflow: hidden;
+}
+#sendButton button::after{
+  content: "";
+  width: 6%;
+  background-color: #08fdd8;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -5px;
+  z-index: -1;
+  transition: all 0.4s ease;
+  transform:  skewX(-10deg);
+}
+#sendButton button:hover{
+  color: #000;
+}
+#sendButton button:hover::after{
+  width: calc(100% + 10px);
+}
+
+@keyframes aparecerButton {
+  0% {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  35%{
+      opacity: 0;
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
   @keyframes aparecer {
     0% {

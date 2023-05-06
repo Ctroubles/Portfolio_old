@@ -11,6 +11,8 @@
     display: flex;  
     align-items: center;   
     position: relative;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; 
 }
 #ContacMe >div{
     width: 50%;
