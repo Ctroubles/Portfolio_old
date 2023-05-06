@@ -3,7 +3,7 @@
 #LadingContainer{
     /* background-color: #1d1d1d; */
     width: 100%;
-    height: calc(var(--vh, 1vh) * 100);
+    height: calc(1vh * 100);
     color: #fefefe;
     display: flex;
     position: relative;

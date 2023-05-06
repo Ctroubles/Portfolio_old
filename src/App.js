@@ -66,7 +66,7 @@ const handleTouchMove = debounce((event) => {
   if (!event.target.classList.contains("noSrcoll")) {
     const delta = Math.sign(event.touches[0].clientY - startY);
     const numViews = 3; 
-
+    console.log(startY);
     if (delta < 0 && currentView < numViews) {
       setCurrentView(currentView + 1);
     } else if (delta > 0 && currentView > 0) {
@@ -128,7 +128,7 @@ const handleTouchMove = debounce((event) => {
               </div>
           </div>
           <div id={style.mainContent}  onWheel={(evento)=>handleWheel(evento)} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}  >
-              <div  style={{transform:`translateY(calc(calc(var(--vh) * 100) * -${currentView}))`,transition:"all 1s ease-out"}}>
+              <div  style={{transform:`translateY(calc(100vh * -${currentView}))`,transition:"all 1s ease-out"}}>
                 <div id={style.CanvasContaier}><CanvaToDraw/></div>
                 <div>
                   <Intro setCurrentView={setCurrentView}/> 
