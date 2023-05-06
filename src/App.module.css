@@ -15,7 +15,7 @@
 
 #Main{
     display: flex;
-    height: calc(var(--vh, 1vh) * 100);
+    height: calc(1vh * 100);
     height: -webkit-fill-available; /* altura completa en iOS */
     height: -moz-available; /* altura completa en Firefox */
     height: -ms-fill-available; /* altura completa en IE/Edge */
