@@ -9,9 +9,6 @@
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
 }
-:root {
-    --vh: 1vh;
-}
 
 #Main{
     display: flex;

@@ -11,7 +11,7 @@
     display: flex;  
     align-items: center;   
     position: relative;
-    overflow-y: scroll;
+    overflow: hidden;
     -webkit-overflow-scrolling: touch; 
 }
 #ContacMe >div{
@@ -645,10 +645,10 @@ to {
 }
 
 
-@media screen and (max-width:381px) and (min-width: 321px) {
+@media screen and (max-width:381px) and (min-width: 320px) {
     #ContacMe{
         flex-direction: column;
-        padding: 45px 0 0 0;
+        padding: 50px 0 0 0;
     }
     #ContacMe >div{
         width: 100%;
@@ -702,10 +702,10 @@ to {
     
 }
 
-@media screen and (max-width:320px) and (min-width: 221px) {
+@media screen and (max-width:319px) and (min-width: 221px) {
     #ContacMe{
         flex-direction: column;
-        padding: 20px 0 0 0;
+        padding: 50px 0 0 0;
     }
     #ContacMe >div{
         width: 100%;

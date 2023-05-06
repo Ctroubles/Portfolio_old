@@ -62,11 +62,13 @@ function handleTouchStart(event) {
 }
 
 const handleTouchMove = debounce((event) => {
+  const touchPositionY = event.changedTouches[0].clientY;
+  console.log(touchPositionY);
+  console.log(startY);
 
   if (!event.target.classList.contains("noSrcoll")) {
-    const delta = Math.sign(event.touches[0].clientY - startY);
+    const delta = Math.sign(touchPositionY - startY);
     const numViews = 3; 
-    console.log(startY);
     if (delta < 0 && currentView < numViews) {
       setCurrentView(currentView + 1);
     } else if (delta > 0 && currentView > 0) {
@@ -127,7 +129,7 @@ const handleTouchMove = debounce((event) => {
                   <span><a href='https://api.whatsapp.com/send/?phone=%2B51902038984&text&type=phone_number&app_absent=0' target='blank'><img src={whatsapp} alt='Whatsapp'/></a></span>
               </div>
           </div>
-          <div id={style.mainContent}  onWheel={(evento)=>handleWheel(evento)} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}  >
+          <div id={style.mainContent}  onWheel={(evento)=>handleWheel(evento)} onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove}  >
               <div  style={{transform:`translateY(calc(100vh * -${currentView}))`,transition:"all 1s ease-out"}}>
                 <div id={style.CanvasContaier}><CanvaToDraw/></div>
                 <div>
