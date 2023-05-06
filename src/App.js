@@ -61,20 +61,21 @@ function handleTouchStart(event) {
   startY = event.touches[0].clientY;
 }
 
-const handleTouchMove = debounce((event) => {
+const handleTouchEnd = debounce((event) => {
+  const maxStartY = window.innerHeight;
   const touchPositionY = event.changedTouches[0].clientY;
-  console.log(touchPositionY);
-  console.log(startY);
+  const threshold = maxStartY * 0.1; // 20% de maxStartY
+  const numViews = 3; 
 
+  
   if (!event.target.classList.contains("noSrcoll")) {
-    const delta = Math.sign(touchPositionY - startY);
-    const numViews = 3; 
-    if (delta < 0 && currentView < numViews) {
+    console.log(touchPositionY);
+    console.log(startY);
+    if (touchPositionY <= startY - threshold && currentView  < numViews) { 
       setCurrentView(currentView + 1);
-    } else if (delta > 0 && currentView > 0) {
+    }else if(touchPositionY >= startY + threshold && currentView > 0){
       setCurrentView(currentView - 1);
     }
-    
   }
   startY=null
 }, 100);
@@ -129,7 +130,7 @@ const handleTouchMove = debounce((event) => {
                   <span><a href='https://api.whatsapp.com/send/?phone=%2B51902038984&text&type=phone_number&app_absent=0' target='blank'><img src={whatsapp} alt='Whatsapp'/></a></span>
               </div>
           </div>
-          <div id={style.mainContent}  onWheel={(evento)=>handleWheel(evento)} onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove}  >
+          <div id={style.mainContent}  onWheel={(evento)=>handleWheel(evento)} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}  >
               <div  style={{transform:`translateY(calc(100vh * -${currentView}))`,transition:"all 1s ease-out"}}>
                 <div id={style.CanvasContaier}><CanvaToDraw/></div>
                 <div>
