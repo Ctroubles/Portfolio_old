@@ -16,6 +16,7 @@ import active__celtic from "./assets/navBar_icons/active_celtic_white.svg"
 import white_spiderweb from "./assets/navBar_icons/telarana.svg"
 import active_spiderweb from "./assets/navBar_icons/active_telarana.svg"
 import facebook from "./assets/social_media/facebok.svg";
+import linkedin from "./assets/social_media/linkedin.svg";
 import whatsapp from "./assets/social_media/whatsapp.svg";
 import github from "./assets/social_media/github.svg";
 
@@ -66,11 +67,8 @@ const handleTouchEnd = debounce((event) => {
   const touchPositionY = event.changedTouches[0].clientY;
   const threshold = maxStartY * 0.1; // 20% de maxStartY
   const numViews = 3; 
-
   
   if (!event.target.classList.contains("noSrcoll")) {
-    console.log(touchPositionY);
-    console.log(startY);
     if (touchPositionY <= startY - threshold && currentView  < numViews) { 
       setCurrentView(currentView + 1);
     }else if(touchPositionY >= startY + threshold && currentView > 0){
@@ -125,7 +123,7 @@ const handleTouchEnd = debounce((event) => {
                   <li> <img src={currentView === 3 ?yellowPlane:plane} alt="plane" onClick={()=>{setCurrentView(3);setNavBarStatus(false)}} /></li>
               </ul>
               <div id={style.socialMedia}>
-                  <span><a href='https://www.facebook.com/cesar.troubles.3/' target='blank'><img style={{height:"22px"}} src={facebook} alt='Facebook'/></a></span>
+                  <span><a href='https://www.linkedin.com/in/cesar-alfredo-llajaruna-gonzalez' target='blank'><img style={{height:"22px"}} src={linkedin} alt='Facebook'/></a></span>
                   <span style={{margin: "0 8px"}}><a href='https://github.com/Ctroubles' target='blank' ><img style={{ height:"19px"}} src={github} alt='GitHub'/></a></span>
                   <span><a href='https://api.whatsapp.com/send/?phone=%2B51902038984&text&type=phone_number&app_absent=0' target='blank'><img src={whatsapp} alt='Whatsapp'/></a></span>
               </div>

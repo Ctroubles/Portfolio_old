@@ -1,5 +1,4 @@
 import style from "./ContacMe.module.css";
-// import emailjs from "emailjs-com";
 import mapaPeru from "../../assets/pictures/peru_sudamerica.png"
 import pin from "../../assets/general_icons/locationPin.svg"
 import emailjs from 'emailjs-com';
@@ -19,7 +18,6 @@ const ContacMe = ({currentView})=>{
         const [succesAlert, setSuccesAlert] = useState(false)
         const [errorAlert, setErrorAlert] = useState(false)
         const [loading, setLoading] = useState(false)
-
         const [form, setForm] = useState({
             from_name:"",
             reply_to:"",
@@ -55,6 +53,9 @@ const ContacMe = ({currentView})=>{
                     }, 6000);
                   } catch (error) {
                     setErrorAlert(true);
+                    setTimeout(() => {
+                        setErrorAlert(false);
+                      }, 6000);
                   }  
             }
           };
