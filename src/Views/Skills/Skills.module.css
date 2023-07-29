@@ -1,6 +1,5 @@
 #Skills{
     background-color: #1d1d1d;
-    height: calc(1vh * 100);
     display: flex;
     position: relative;
     -webkit-overflow-scrolling: touch; 
