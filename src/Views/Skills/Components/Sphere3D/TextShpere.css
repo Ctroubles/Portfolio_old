@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700;800;900&display=swap');
-
 #sphereSkillsContainer{
     transition: all 2s ease-in;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
@@ -28,20 +26,21 @@
     display: inline-block;
     top: 0;
     left: 0;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
+    /* font-family: 'Inter', sans-serif; */
+    font-family: 'Sigmar', cursive;
+    font-weight: 400;
     letter-spacing: 1px;
     font-size: 28px;
+    cursor: grab;
 }
 
-/* Change color of each text in sphere on hover   */
 .tagcloud--item {
     color: #00ffffff;
     text-transform: uppercase;
 }
 
 .tagcloud--item:hover {
-    color: #da5c46;
+    color: #ff6347;
 }
             
 

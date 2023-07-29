@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 const Skills =  ({currentView})=>{
 
-    const sentence1 = "Mis tecnologías:".split(" ")
+    const sentence1 = "Mis tecnologías:";
     const [animationStatus, setAnimationStatus] = useState(false)
 
     useEffect(()=>{
@@ -21,19 +21,15 @@ const Skills =  ({currentView})=>{
                 <div>
                      <div id={style.sentence}>
                         {
-                            sentence1.map((word, index) =>(
-                                        <span key={index}>
-                                            {word.split("").map((letter,index)=>(
+                            sentence1.split("").map((letter,index)=>(
                                                     (<LetterAnimated key={index} letter={letter} contador={index+1} currentView={currentView} callerView={1} />)
-                                            ))}
-                                            &nbsp;
-                                        </span>
-                                        )            
-                                    )
+                                            ))
+                                                 
+                                    
                         }
                         </div>
                         <p id={animationStatus?style.timeToAnimate:undefined}> 
-                        Tengo experiencia y manejo una variedad de habilidades y herramientas que me permiten crear productos de software. Además, me estoy familiarizando con React Native y Angular. Debido a mi interés en inteligencia artificial, a futuro me gustaría profundizar en Python y sus frameworks, como TensorFlow, PyTorch, Keras, entre otros.
+                            Tengo experiencia y manejo una variedad de habilidades y herramientas que me permiten crear productos de software. Además, me estoy familiarizando con React Native y Angular. Debido a mi interés en inteligencia artificial, a futuro me gustaría profundizar en Python y sus frameworks, como TensorFlow, PyTorch, Keras, entre otros.
                         </p>
                 </div>
 

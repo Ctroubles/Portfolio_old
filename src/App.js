@@ -8,14 +8,14 @@ import CanvaToDraw from "./Components/canvaToDraw/CanvaToDraw.jsx";
 import { BrowserRouter, Route,} from "react-router-dom";
 import { debounce } from 'lodash';
 import arrow from "./assets/general_icons/black_arrow.svg"
-import { useMediaQuery } from '@material-ui/core';
+import { useMediaQuery } from '@mui/material';
 import homeIcon from "./assets/navBar_icons/home_icon.svg"
 import active_home from "./assets/navBar_icons/active_home.svg"
 import white_celtic from "./assets/navBar_icons/celtic_white.svg"
 import active__celtic from "./assets/navBar_icons/active_celtic_white.svg"
 import white_spiderweb from "./assets/navBar_icons/telarana.svg"
 import active_spiderweb from "./assets/navBar_icons/active_telarana.svg"
-import facebook from "./assets/social_media/facebok.svg";
+// import facebook from "./assets/social_media/facebok.svg";
 import linkedin from "./assets/social_media/linkedin.svg";
 import whatsapp from "./assets/social_media/whatsapp.svg";
 import github from "./assets/social_media/github.svg";
@@ -129,7 +129,7 @@ const handleTouchEnd = debounce((event) => {
               </div>
           </div>
           <div id={style.mainContent}  onWheel={(evento)=>handleWheel(evento)} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}  >
-              <div  style={{transform:`translateY(calc(100vh * -${currentView}))`,transition:"all 1s ease-out"}}>
+              <div  style={{transform:`translateY(calc(100vh * -${currentView}))`,transition:"transform 1s ease-out"}}>
                 <div id={style.CanvasContaier}><CanvaToDraw/></div>
                 <div>
                   <Intro setCurrentView={setCurrentView}/> 
@@ -145,11 +145,11 @@ const handleTouchEnd = debounce((event) => {
                 </div>
               </div>
               <label id={style.leftArrow} className={style.arrowDown} style={currentView>=3?inactiveStyle:undefined} onClick={()=>takeDown()} >
-                <span>Abajo</span>
+                <span onClick={()=>takeDown()} >Abajo</span>
                 <img src={arrow} alt="" />
             </label>
             <label id={style.rightArrow} className={style.arrowDown} style={currentView>=3?inactiveStyle:undefined} onClick={()=>takeDown()} >
-                <span>Abajo</span>
+                <span onClick={()=>takeDown()} >Abajo</span>
                 <img src={arrow} alt="" />
             </label>  
            </div>

@@ -93,7 +93,7 @@ const ContacMe = ({currentView})=>{
                         }
                 </div>
                 </label>
-                <label>
+                <label id={style.parrText}>
                     <p>
                     Estoy interesado en oportunidades de trabajo independiente, especialmente en proyectos ambiciosos que me supongan un reto. Sin embargo, si tiene otra solicitud o pregunta, no dude en escribirme.
                     </p>

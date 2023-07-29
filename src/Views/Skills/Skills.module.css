@@ -30,6 +30,9 @@
 }
 #content p{
     margin-top: 20px;
+    font-family: 'IBM Plex Sans', sans-serif !important;
+    font-size: 16px;
+    line-height: 1.8;
 }
 
 #sphereContainer{

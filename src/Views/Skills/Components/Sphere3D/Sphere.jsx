@@ -1,6 +1,6 @@
 import React, { useEffect, } from "react";
 import "./TextShpere.css";
-import { useMediaQuery } from '@material-ui/core';
+import { useMediaQuery } from '@mui/material';
 import TagCloud from "TagCloud";
 
 

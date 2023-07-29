@@ -1,0 +1,5 @@
+#imgCont img{
+    user-select: none;
+    -webkit-user-drag: none; /* Safari/Chrome */
+    -webkit-touch-callout: none;
+}

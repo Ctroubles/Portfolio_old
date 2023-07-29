@@ -1,50 +1,119 @@
 #Projects{
-    height: calc(1vh * 100);
-    background-color: #1d1d1d;
+    height: 100vh;
+    background-color: #1A1C20;
+    background-color: #4c0082;
+    background-color: #171717;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: start;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch; 
+    flex-direction: column;
+    font-family: 'IBM Plex Sans', sans-serif;
+    opacity: 0;
+    transition: opacity 0.9s ease-out;
+    /* transition-delay: 100ms; */
 }
-
-#CardsProjectContainer{
-    flex-direction: row;
-    display: flex;
-    color: #dfdddd;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 100%;
-    max-width: 1200px;
+#Projects.active{
+    opacity: 1;
 }
-.projectsCards{
-    width: 300px;
-    margin: 0 50px;
-}
-.projectsCards p{
-    margin-top: 5px;
-    text-align: center;
-}
-#imgContainerCompuShop{
-    height: 250px;
-    border-radius: 6px;
-    overflow: hidden;
-}
-#imgContainerCompuShop  img{
-    height: 102%;
-}
-
-#imgContainer_ezCook{
-    height: 250px;
-    border-radius: 6px;
-    overflow: hidden;
+#header{
+    color: #08fdd8;
+    padding: 4vh 45px 2.5vh 40px; 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: transform 1.2s ease-out, opacity 1.2s ease-out;
+    transition-delay: 800ms;
 }
-#imgContainer_ezCook  img{
+#header.active{
+    transform: translateY(0px);
+    opacity: 1;
+}
+#header span{
+    background-image: linear-gradient(to right, #08fdd8, #08fdd8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 50px;
+    font-weight: 500; 
+    line-height: 1.5;
+}
+#arrowsSection{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 15px;
+    gap: 25px;
+}
+#arrowsSection>div{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 4px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.1s ease, opacity 0.3s ease;
+}
+#arrowsSection>div.deactivated.plus{
+    opacity: 0;
+    pointer-events: none;
+}
+#arrowsSection>div.deactivated{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+#arrowsSection>div.deactivated:active{
+    transform: scale(1);
+}
+#arrowsSection>div:active{
+    transform: scale(1.08);
+}
+#arrowsSection>div *{ 
+    pointer-events: none;
+    user-select: none;
+}
+#arrowsSection>div:first-child img{
+    transform: rotate(180deg);
+    padding-top: 0;
+    padding-bottom: 2px;
+}
+#arrowsSection img{
+    padding-top: 4px;
+    width: 20px;
+    height: 20px;
+}
+#CardsProjectContainer{
+    flex-direction: row;
+    color: #dfdddd;
+    width: 100%;
     height: 100%;
-    /* padding-right: 100px; */
+    overflow: hidden;
+}
+#carousel{
+    height: 100%;
+    display: flex;
+    width: calc(100% * 5);
+}
+#carousel>div{
+    width: 100%;
 }
 
 
+@media screen and (max-width:990px) {
+    #header{
+        color: #08fdd8;
+        padding: 2.5vh 30px 0vh 0; 
+    }
+}
+
+@media screen and (max-width:600px) {
+    #header{
+        padding: 2.5vh 30px 0vh 20px; 
+        justify-content: start;
+    }
+    #arrowsSection>div.deactivated.plus{
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}

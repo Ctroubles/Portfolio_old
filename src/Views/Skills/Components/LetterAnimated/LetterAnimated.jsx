@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import style from "./LetterAnimated.module.css"
 
 const LetterAnimated = ({letter, contador,currentView, callerView})=>{
+
     const controls = useAnimationControls();
     const [isPlaying, setIsPlaying] = useState(false);
 
