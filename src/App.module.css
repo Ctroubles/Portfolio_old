@@ -11,20 +11,19 @@ body{
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
 }
+#AbsoluteContainer{
+    height: 100%;
+}
 #Main{
     display: flex;
-    height: calc(1vh * 100);
-    height: -webkit-fill-available; /* altura completa en iOS */
-    height: -moz-available; /* altura completa en Firefox */
-    height: -ms-fill-available; /* altura completa en IE/Edge */
-    height: fill-available; /* altura completa en otros navegadores */
+    height: 100%;
     overflow: hidden;
     color: #faebd7;
     background-color: #1d1d1d;
 }
 #mainContent{
     width: calc(100vw - 75px);
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
     position: relative;
@@ -39,6 +38,7 @@ body{
     display: flex;
     flex-direction: column;
     position: relative;
+    height: 100%;
 }
 #navBarOptions{
     color: #faebd7;

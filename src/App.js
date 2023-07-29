@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import NotFound from './Components/NotFound/NotFound.jsx';
 import style from "./App.module.css";
 import plane from "./assets/navBar_icons/white_plane.svg"
@@ -35,6 +35,20 @@ function App() {
     const [currentView, setCurrentView] = useState(0);
     const [navBarStatus, setNavBarStatus] = useState(false);
 
+    const [bodyHeight, setBodyHeight] = useState(document.body.clientHeight);
+
+    useLayoutEffect(() => {
+      const handleResize = () => {
+        setBodyHeight(document.documentElement.clientHeight);
+      };
+  
+      window.addEventListener('resize', handleResize);
+      handleResize();
+  
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
 
     const widthMobile = useMediaQuery('(max-width: 680px)')
 
@@ -97,9 +111,13 @@ const handleTouchEnd = debounce((event) => {
           navBar.style.display = "none"
         }
       }
-   
-
     },[navBarStatus])
+
+
+
+
+
+
 
 
   return (
@@ -129,7 +147,7 @@ const handleTouchEnd = debounce((event) => {
               </div>
           </div>
           <div id={style.mainContent}  onWheel={(evento)=>handleWheel(evento)} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}  >
-              <div  style={{transform:`translateY(calc(100vh * -${currentView}))`,transition:"transform 1s ease-out"}}>
+              <div  style={{transform:`translateY(calc(${bodyHeight}px * -${currentView}))`,transition:"transform 1s ease-out", height:"100%"}}>
                 <div id={style.CanvasContaier}><CanvaToDraw/></div>
                 <div>
                   <Intro setCurrentView={setCurrentView}/> 

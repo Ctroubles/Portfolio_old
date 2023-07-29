@@ -209,15 +209,12 @@ const Projects = ({currentView})=>{
     useEffect(()=>{
         if (currentView === 2) {
             setAnimationStatus(true)
-            console.log(projectFocus);
-            console.log(projectFocus);
+
             if (focus === null) {
-                console.log("con retraso");
                 setTimeout(() => {
                     setFocus(projectFocus)
                 }, 260);    
             } else {
-                console.log("sin retraso");
                 setFocus(projectFocus)
             }
            
